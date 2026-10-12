@@ -1,0 +1,8 @@
+torch
+torchvision
+medmnist>=3.0
+optuna
+scikit-learn
+pandas
+matplotlib
+numpy
