@@ -2,7 +2,7 @@
 
 An end-to-end study of a chest X-ray classifier (normal vs. pneumonia) on PneumoniaMNIST. The notebook goes beyond training a model: it checks the data for leakage, evaluates calibration and error types, tests whether the explanation maps can be trusted, and examines why hyperparameter tuning on a validation set can fail under distribution shift.
 
-All experiments run in a single notebook on one NVIDIA T4 GPU (Kaggle).
+All experiments run in a single notebook on one NVIDIA T4 GPU (Kaggle). The notebook is saved with its outputs, so all figures and tables can be viewed directly on GitHub without re-running it.
 
 ## Highlights
 
@@ -86,6 +86,10 @@ A validation-independent alternative, averaging the predictions of the three bas
 
 Mixed precision halved training time and cut peak memory by about 69% with no measurable loss in AUROC. Lowering the resolution to 128 px was faster again but reduced specificity and made results less stable across seeds.
 
+## Results workbook
+
+`results_workbook.xlsx` contains every result table produced by the notebook, one sheet per output file, with a README sheet describing each one. It includes class balance and duplicate checks, the training history, baseline metrics, per-image Grad-CAM and occlusion results, all Optuna trials, per-seed comparisons, the seed ensemble and the speed benchmarks.
+
 ## How to run
 
 1. Open the notebook on Kaggle (or any machine with a CUDA GPU) and enable **GPU T4** and **Internet**.
@@ -104,7 +108,8 @@ jupyter notebook pneumoniamnist_resnet18_explainability.ipynb
 ## Repository structure
 
 ```
-├── pneumoniamnist_resnet18_explainability.ipynb   # full pipeline with saved outputs
+├── pneumoniamnist_resnet18_explainability.ipynb   # full pipeline, saved with all outputs and figures
+├── results_workbook.xlsx                           # all result tables, one sheet per output file
 ├── requirements.txt
 └── README.md
 ```
